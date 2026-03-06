@@ -49,11 +49,11 @@ Authorization: Bearer {{token1}}
 ### PUT /users/me
 @token1 = {{user.response.body.token}}
 PUT {{base_url}}/users/me
-Authorization: Bearer {{token2}}
+Authorization: Bearer {{token1}}
 Content-Type: application/json
 
 {
-  "username": "NewBen555",
+  "username": "benza55+",
   "password": "Newpassword555"
 }
 
@@ -61,3 +61,16 @@ Content-Type: application/json
 @token2 = {{doctor.response.body.token}}
 GET {{base_url}}/doctors/me
 Authorization: Bearer {{token2}}
+
+
+### PUT /docters/me
+@token2 = {{doctor.response.body.token}}
+PUT {{base_url}}/doctors/me
+Authorization: Bearer {{token2}}
+Content-Type: application/json
+
+{
+  "username": "dr_as",
+  "password": "123456",
+  "specialization": "ass"
+}

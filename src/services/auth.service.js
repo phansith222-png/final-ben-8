@@ -77,3 +77,23 @@ export async function findDoctorPatientById(id){
     return doctor
 }
 
+export async function updateUser(username,hashedpassword){
+    const result = await prisma.user.update({
+        where :{username},
+        data:{
+            username,
+            password:hashedpassword
+        }
+    })
+    return result
+}
+export async function updateDoctor(username,hashedpassword){
+    const result = await prisma.docter.update({
+        where :{username},
+        data:{
+            username,
+            password:hashedpassword
+        }
+    })
+    return result
+}
