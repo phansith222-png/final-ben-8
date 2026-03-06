@@ -1,0 +1,17 @@
+@base_url = http://localhost:3000
+
+### POST LOGIN USER
+# @name user
+POST {{base_url}}/auth/login/user
+Content-Type: application/json
+
+{
+  "username": "benza55+",
+  "password": "123456"
+}
+
+
+### GET /users/me
+@token = {{user.response.body.token}}
+GET {{base_url}}/users/me
+Authorization: Bearer {{token}}

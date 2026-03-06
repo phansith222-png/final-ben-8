@@ -1,0 +1,63 @@
+@base_url = http://localhost:3000
+
+### POST REGISTER/DOCTOR
+POST  {{base_url}}/auth/register/doctor
+Content-Type: application/json
+
+{
+  "username": "dr_asdad",
+  "password": "123456",
+  "specialization": "Fatiosslogy"
+}
+
+### POST REGISTER/USER
+POST  {{base_url}}/auth/register/user
+Content-Type: application/json
+
+{
+  "username": "authhuakluay",
+  "password": "123456"
+}
+
+### POST LOGIN DOCTOR
+# @name doctor
+POST {{base_url}}/auth/login/doctor
+Content-Type: application/json
+
+{
+  "username": "dr_as",
+  "password": "123456"
+}
+
+
+### POST LOGIN USER
+# @name user
+POST {{base_url}}/auth/login/user
+Content-Type: application/json
+
+{
+  "username": "benza55+",
+  "password": "123456"
+}
+
+
+### GET /users/me
+@token1 = {{user.response.body.token}}
+GET {{base_url}}/users/me
+Authorization: Bearer {{token1}}
+
+### PUT /users/me
+@token1 = {{user.response.body.token}}
+PUT {{base_url}}/users/me
+Authorization: Bearer {{token2}}
+Content-Type: application/json
+
+{
+  "username": "NewBen555",
+  "password": "Newpassword555"
+}
+
+### GET /doctors/me
+@token2 = {{doctor.response.body.token}}
+GET {{base_url}}/doctors/me
+Authorization: Bearer {{token2}}
